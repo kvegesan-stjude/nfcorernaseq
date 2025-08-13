@@ -38,7 +38,7 @@ process PROCESS_PREMAPPED_READS {
     }
     """
     # Sort and index the incoming BAM file
-    samtools sort --threads ${task.cpus} -o ${prefix}.sorted.tmp.bam ${bam}
+    samtools sort --threads ${task.cpus} -O bam -o ${prefix}.sorted.tmp.bam ${bam}
     samtools index --threads ${task.cpus} ${prefix}.sorted.tmp.bam
 
     # Separate reads into uniquely mappable to the exclude_bed and those that are not
