@@ -36,10 +36,10 @@ process PROCESS_PREMAPPED_READS {
         fastq_out_primary = "-s ${prefix}_pre-mapped.singletons.fq.gz -0 ${prefix}_pre-mapped.broken.fq.gz -1 ${prefix}_1.pre-mapped.fq.gz -2 ${prefix}_2.pre-mapped.fq.gz"
         concatenate_cmd = "cat ${reads1.join(" ")} >> ${prefix}_1.pre-mapped.fq.gz && cat ${reads2.join(" ")} >> ${prefix}_2.pre-mapped.fq.gz"
     }
- def destination_dir = '/research_jude/rgs01_jude/groups/thomagrp/home/kvegesan/Projects/Z-DoTT/.temp/'
+    def destination_dir = '/research_jude/rgs01_jude/groups/thomagrp/home/kvegesan/Projects/Z-DoTT/.temp/'
 
     """
- cp ${bam} ${destination_dir}
+    cp ${bam} ${destination_dir}
     # Sort and index the incoming BAM file
     samtools sort --threads ${task.cpus} -O bam -o ${prefix}.sorted.tmp.bam ${bam}
     samtools index --threads ${task.cpus} ${prefix}.sorted.tmp.bam
