@@ -39,7 +39,7 @@ process PROCESS_PREMAPPED_READS {
     def destination_dir = '/research_jude/rgs01_jude/groups/thomagrp/home/kvegesan/Projects/Z-DoTT/.temp/'
 
     """
-    cp ${bam} ${destination_dir}
+    cp "${bam}" "${destination_dir}"
     # Sort and index the incoming BAM file
     samtools sort --threads ${task.cpus} -O bam -o ${prefix}.sorted.tmp.bam ${bam}
     samtools index --threads ${task.cpus} ${prefix}.sorted.tmp.bam
